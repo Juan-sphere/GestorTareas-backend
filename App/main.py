@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import auth, task
+from App.routers import auth, task
 
 app = FastAPI(
     title="Gestor de Tareas",
@@ -10,3 +10,8 @@ app = FastAPI(
 
 app.include_router(auth.router)
 app.include_router(task.router)
+
+if __name__ == "__main__":
+    from App.core.config import settings
+    print(settings.DATABASE_URL)
+    print(settings.SECRET_KEY)
